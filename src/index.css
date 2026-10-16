@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-lingua-dark text-lingua-text font-sans antialiased;
+    background-color: #0a0a0f;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #111118;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a3a;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4f6ef7;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-lingua-blue hover:bg-lingua-blue-dark text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 text-sm whitespace-nowrap;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent hover:bg-lingua-surface text-lingua-text font-medium px-4 py-2 rounded-xl transition-all duration-200 text-sm;
+  }
+
+  .nav-link {
+    @apply text-lingua-subtext hover:text-lingua-text font-medium text-sm transition-colors duration-200 flex items-center gap-1 cursor-pointer;
+  }
+
+  .tab-btn {
+    @apply flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer whitespace-nowrap;
+  }
+
+  .tab-btn-active {
+    @apply bg-lingua-card text-lingua-text shadow-lg border border-lingua-border;
+  }
+
+  .tab-btn-inactive {
+    @apply text-lingua-muted hover:text-lingua-subtext;
+  }
+
+  .lang-btn {
+    @apply flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer;
+  }
+
+  .glass-card {
+    @apply bg-lingua-card border border-lingua-border rounded-2xl;
+  }
+}
+
+/* Gradient glow background */
+.hero-bg {
+  background: radial-gradient(ellipse 90% 60% at 50% -10%, rgba(79, 110, 247, 0.12), transparent 70%),
+              radial-gradient(ellipse 50% 40% at 80% 20%, rgba(124, 58, 237, 0.08), transparent 60%),
+              #0a0a0f;
+}
+
+/* Drag over state */
+.drag-over {
+  border-color: #4f6ef7 !important;
+  background-color: rgba(79, 110, 247, 0.05) !important;
+}
+
+/* Textarea custom */
+textarea.translator-input {
+  resize: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  color: #e8e8f0;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+}
+
+textarea.translator-input::placeholder {
+  color: #5555778a;
+}
+
+/* Badge pulse */
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.badge-new {
+  animation: badgePulse 2.5s ease-in-out infinite;
+}
+
+/* Smooth tab content transition */
+.tab-content {
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Thin scrollbar utility for sidebar */
+.scrollbar-thin::-webkit-scrollbar { width: 4px; }
+.scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: #2a2a3a; border-radius: 2px; }
+.scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #4f6ef7; }
+
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
